@@ -11,16 +11,22 @@ $.ajax('https://api.parse.com/1/classes/newsitem',
 ).done(function(response) {
 	var news = response.results;
 	console.log(news);
+
   //populate list here with jQuery
+	for (var i=0;i<news.length;i++) {
 
-  var article =document.createElement('div');
-  var title = document.createElement('h1');
-  var content = document.createElement('p');
+	//Create Objects	
 
+  	var article =document.createElement('div');
+  	var title = document.createElement('h1');
+  	var content = document.createElement('p');
 
-  $(title).text(news[1].title).appendTo(article);
-  $(content).text(news[1].body).appendTo(article);
-  $(article).addClass("newsitem").appendTo(".container");
+  	//Publish in the DOM
+
+  	$(title).text(news[i].title).appendTo(article);
+  	$(content).text(news[i].body).appendTo(article);
+  	$(article).addClass("newsitem").appendTo(".container");
+	}
 
 });
 
